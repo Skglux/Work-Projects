@@ -13,12 +13,12 @@ For the script to parse information correctly, files must follow this underscore
 
 | Key Position | Data Type | Used for Sorting? |
 
-| 1 |          Supplier ID | ✅ Yes           |
-| 2 |       Invoice Number | ❌ No            |
-| 3 |                Fleet | ✅ Yes           |
-| 4 |        Training Type | ✅ Yes           |
-| 5 |               Period | ✅ Yes           | 
-| 6 |            PO Number | ❌ No            |
+| 1 |          Supplier ID | ✅ Yes           |<br>
+| 2 |       Invoice Number | ❌ No            |<br>
+| 3 |                Fleet | ✅ Yes           |<br>
+| 4 |        Training Type | ✅ Yes           |<br>
+| 5 |               Period | ✅ Yes           |<br>
+| 6 |            PO Number | ❌ No            |<br>
 
 *Example:* `2990103_120003506_q4_conv_0126_33000012145.pdf`
 
