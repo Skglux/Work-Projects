@@ -20,7 +20,7 @@ For the script to parse information correctly, files must follow this underscore
 | 5 |               Period | ✅ Yes           |<br>
 | 6 |            PO Number | ❌ No            |<br>
 
-*Example:* `2990103_120003506_q4_conv_0126_33000012145.pdf`
+*Example:* `2990103_120003506_q4_co_0126_33000012145.pdf`
 
 ## ⚙️ How it Works
 * **Active Monitoring:** The script polls the `source_dir` every 10 seconds.
