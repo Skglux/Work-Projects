@@ -29,8 +29,21 @@ while True:
                 
                 supplier = pdfkeys[0]
                 fleet = pdfkeys[2]
-                trng_type = pdfkeys[3]
-                period = pdfkeys[4]
+
+                # Condition in case of an invoice split repositing of the keys to adjust the allocation result.
+                trng_type = None
+                trng_type2 = None
+                period = None
+                if pdfkeys[3] not in  ("re","co"):
+                    period = pdfkeys[3]
+                else:
+                    trng_type = pdfkeys[3]
+
+                if pdfkeys[4] not in  ("re","co"):
+                   period = pdfkeys[4]
+                else:
+                  trng_type2 = pdfkeys[4]
+                  period = pdfkeys[5]
 
                 # Maps the current file path of the pdf
                 current_file_path = os.path.join(source_dir,word)
@@ -62,7 +75,28 @@ while True:
                     target_infpcdir = os.path.join(infpc_dir,fleet,trng_type,period)
                     os.makedirs(target_infpcdir, exist_ok=True)
 
-                # Construct the full destination paths (directory + filename)
+
+                # Below it checks for a second training type if it does not exist does not proceed to create path.   
+                final_infpc2_path = None
+                if trng_type2 is not None:
+                    existing_fleet2 = None
+                    for infpcsub_folder2 in os.listdir(infpc_dir):
+                        if infpcsub_folder2.startswith(fleet):
+                            existing_fleet2 = infpcsub_folder2
+                            break
+                    if existing_fleet2:
+                        target_infpcdir2 = os.path.join(infpc_dir,existing_fleet2,trng_type2,period)
+                        os.makedirs(target_infpcdir2, exist_ok=True)
+                    else:
+                        target_infpcdir2 = os.path.join(infpc_dir,fleet,trng_type2,period)
+                        os.makedirs(target_infpcdir2, exist_ok=True)
+                    
+                    # Construct the full destination paths (directory + filename)
+                    # This ensures the file is placed correctly and allows for overwriting   
+                    final_infpc2_path = os.path.join(target_infpcdir2,word)
+                    
+                # Construct the full destination path (directory + filename) for the supplier dir
+
                 # This ensures the file is placed correctly and allows for overwriting
                 final_supplier_path = os.path.join(target_supplierdir, word)
                 final_infpc_path = os.path.join(target_infpcdir, word)
@@ -73,11 +107,10 @@ while True:
                 # Move the original PDF to the final INFPC destination (overwrites if file exists)
                 shutil.move(current_file_path, final_infpc_path)
 
-            # Safety net    
+        # Safety net    
             except:
                 print(f"Error processing{word}")    
     time.sleep(10)
 
-        
-
    
+
