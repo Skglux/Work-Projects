@@ -9,9 +9,9 @@ import os
 import shutil
 import time 
 
-source_dir = "C:/Users/fotis/Desktop/inputtest"
-supplier_dir = r"C:\Users\fotis\Desktop\test\supplierstest2" 
-infpc_dir = r"C:\Users\fotis\Desktop\test\infpcstest1"
+source_dir = r"C:\.."
+supplier_dir = r"C:\.."
+infpc_dir = r"C:\.."
 
 while True:
     # Creates a list of the file names from source dir
