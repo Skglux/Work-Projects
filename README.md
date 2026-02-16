@@ -1,5 +1,12 @@
 # 🚚 PDF Distributer
 
+## Status
+🚧 Work in Progress
+
+Currently improving:
+- Error handling
+- Validation
+
 ## 📝 Overview
 The **PDF Distributer** is an automated file management script that acts as a "Sentry" for your workflow. It monitors a specific landing folder and automatically sorts incoming PDF invoices into organized directories based on specific **keys** extracted from the filename.
 
@@ -47,4 +54,5 @@ The primary objective of this project is to eliminate the manual overhead of sor
 4.  **Stop:** Close the terminal window or press `Ctrl + C`.
 
 ## 🛡️ Safety Net
+
 The script is wrapped in a `try/except` block. If a file is locked or a path is unreachable, the script will print an error message and continue monitoring without crashing.
