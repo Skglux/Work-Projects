@@ -5,7 +5,7 @@ The **PDF Distributer** is an automated file management script that acts as a "S
 
 It manages two primary distribution channels:
 1.  **Supplier Archive:** Organized by Supplier ID and Consumption Period.
-2.  **Internal Fleet (INFPC):** Organized by Fleet, Training Type, and Consumption Period.
+2.  **Internal Fleet:** Organized by Fleet, Training Type, and Consumption Period.
 
 ## 🏷️ File Naming Convention
 For the script to parse information correctly, files must follow this underscore-separated pattern:
