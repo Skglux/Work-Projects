@@ -19,9 +19,11 @@ while True:
     # Looping over each pdf in the list of the directory
     for word in lstpdf:
         
-        # REMINDER key 1: supplier, 2: invoice_nr, 3 IRRELEVANT : fleet, 4: training type, 5: consuption period, 6: po_nr IRRELEVANT
-        if word.endswith(".pdf"):
-            # safety net
+
+       # Added excel files also.
+        if word.endswith(".pdf") or word.endswith(".xlsx"):
+            # Safety net
+
             try:
                 time.sleep(1) # waits for 1 second for the file to fully land in any case.
                 # Creates a list with each key
@@ -31,20 +33,18 @@ while True:
                 fleet = pdfkeys[2]
 
                 # Condition in case of an invoice split repositing of the keys to adjust the allocation result.
-                trng_type = None
-                trng_type2 = None
+                # REMINDER key 1: supplier, 2: invoice_nr, 3 IRRELEVANT : fleet, 4: training type1, 5: training type2 , 6: consuption period, 7: po_nr IRRELEVANT
+                trng_type = pdfkeys[3]
+                trng_type2 = pdfkeys[4]
                 period = None
-                if pdfkeys[3] not in  ("re","co"):
-                    period = pdfkeys[3]
+                if trng_type2 not in ("re","co"):
+                    trng_type2 = None
+                    period = pdfkeys[4]
+                    if trng_type not in ("re","co"):
+                        trng_type = None
+                        period = pdfkeys[3]
                 else:
-                    trng_type = pdfkeys[3]
-
-                if pdfkeys[4] not in  ("re","co"):
-                   period = pdfkeys[4]
-                else:
-                  trng_type2 = pdfkeys[4]
-                  period = pdfkeys[5]
-
+                    period = pdfkeys[5]
                 # Maps the current file path of the pdf
                 current_file_path = os.path.join(source_dir,word)
                 
@@ -113,4 +113,5 @@ while True:
     time.sleep(10)
 
    
+
 
