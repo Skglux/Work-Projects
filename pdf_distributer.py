@@ -17,26 +17,28 @@ while True:
     # Creates a list of the file names from source dir
     lstpdf = os.listdir(source_dir)
     # Looping over each pdf in the list of the directory
-    for word in lstpdf:
+    for filename in lstpdf:
         
 
-       # Added excel files also.
-        if word.endswith(".pdf") or word.endswith(".xlsx"):
+=======
+        # REMINDER key 1: supplier, 2: invoice_nr, 3 IRRELEVANT : fleet, 4: training type1, 5: training type2 , 6: consuption period, 7: po_nr IRRELEVANT
+        if filename.endswith(".pdf") or filename.endswith(".xlsx"):
+
             # Safety net
 
             try:
                 time.sleep(1) # waits for 1 second for the file to fully land in any case.
                 # Creates a list with each key
-                pdfkeys = word.split("_")
+                pdfkeys = filename.split("_")
                 
                 supplier = pdfkeys[0]
                 fleet = pdfkeys[2]
 
                 # Condition in case of an invoice split repositing of the keys to adjust the allocation result.
-                # REMINDER key 1: supplier, 2: invoice_nr, 3 IRRELEVANT : fleet, 4: training type1, 5: training type2 , 6: consuption period, 7: po_nr IRRELEVANT
                 trng_type = pdfkeys[3]
                 trng_type2 = pdfkeys[4]
                 period = None
+                
                 if trng_type2 not in ("re","co"):
                     trng_type2 = None
                     period = pdfkeys[4]
@@ -45,8 +47,9 @@ while True:
                         period = pdfkeys[3]
                 else:
                     period = pdfkeys[5]
+                    
                 # Maps the current file path of the pdf
-                current_file_path = os.path.join(source_dir,word)
+                current_file_path = os.path.join(source_dir,filename)
                 
                 # Looks for existing file name that starts with the supplier id
                 existing_supplier = None
@@ -63,6 +66,7 @@ while True:
                     target_supplierdir = os.path.join(supplier_dir,supplier,period)
                     os.makedirs(target_supplierdir, exist_ok=True)
 
+<<<<<<< HEAD
                 existing_fleet = None
                 for infpcsub_folder in os.listdir(infpc_dir):
                     if infpcsub_folder.startswith(fleet):
@@ -75,6 +79,11 @@ while True:
                     target_infpcdir = os.path.join(infpc_dir,fleet,trng_type,period)
                     os.makedirs(target_infpcdir, exist_ok=True)
 
+=======
+                    # Construct the full destination paths (directory + filename)
+                    # This ensures the file is placed correctly and allows for overwriting
+                    final_infpc_path = os.path.join(target_infpcdir, filename)
+>>>>>>> 42c825a (Update pdf_distributer.py)
 
                 # Below it checks for a second training type if it does not exist does not proceed to create path.   
                 final_infpc2_path = None
@@ -93,13 +102,17 @@ while True:
                     
                     # Construct the full destination paths (directory + filename)
                     # This ensures the file is placed correctly and allows for overwriting   
-                    final_infpc2_path = os.path.join(target_infpcdir2,word)
+                    final_infpc2_path = os.path.join(target_infpcdir2,filename)
                     
                 # Construct the full destination path (directory + filename) for the supplier dir
 
                 # This ensures the file is placed correctly and allows for overwriting
+<<<<<<< HEAD
                 final_supplier_path = os.path.join(target_supplierdir, word)
                 final_infpc_path = os.path.join(target_infpcdir, word)
+=======
+                final_supplier_path = os.path.join(target_supplierdir, filename)
+>>>>>>> 42c825a (Update pdf_distributer.py)
                 
                 # Copy the PDF to the supplier directory (overwrites if a file with the same name exists)
                 shutil.copy2(current_file_path, final_supplier_path)
@@ -109,9 +122,14 @@ while True:
 
         # Safety net    
             except:
-                print(f"Error processing{word}")    
+                print(f"Error processing{filename}")    
     time.sleep(10)
 
+        
+
    
+
+   
+
 
 
