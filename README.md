@@ -1,7 +1,7 @@
 # 🚚 PDF Distributer
 
 ## 📝 Overview
-The **PDF Distributer** is an automated file management script that acts as a "Sentry" for your workflow. It monitors a specific landing folder and automatically sorts incoming PDF invoices into organized directories based on specific **keys** extracted from the filename.
+The **PDF Distributer** is an automated file management script that acts as a "Sentry" for your workflow. It monitors a specific landing folder and automatically sorts incoming PDF invoices and spreadsheets into organized directories based on specific **keys** extracted from the filename.
 
 It manages two primary distribution channels:
 1.  **Supplier Archive:** Organized by Supplier ID and Consumption Period.
@@ -56,3 +56,4 @@ The script is wrapped in a `try/except` block. If a file is locked or a path is 
 Currently improving:
 - Error handling
 - Validation
+
