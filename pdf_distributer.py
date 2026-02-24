@@ -1,7 +1,7 @@
 """  
 The **PDF Distributer** is an automated file management script 
 that acts as a "Sentry" for your workflow. 
-It monitors a specific landing folder and automatically sorts incoming PDF invoices
+It monitors a specific landing folder and automatically sorts incoming PDF invoices and spreadsheets
 into organized directories based on specific **keys** extracted from the filename.
 """
 
@@ -130,6 +130,7 @@ while True:
    
 
    
+
 
 
 
