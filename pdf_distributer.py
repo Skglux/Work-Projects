@@ -109,7 +109,7 @@ while True:
                             final_afl1_path = os.path.join(afl1_path,filename)
 
                         if att2:
-                            afl2_path = os.path.join(infpc_dir,bfl,att2,period)
+                            afl2_path = os.path.join(infpc_dir,afl,att2,period)
                             os.makedirs(afl2_path, exist_ok=True)
                             final_afl2_path = os.path.join(afl2_path,filename)
                     
@@ -146,5 +146,6 @@ while True:
             except:
                 print(f"Error processing{filename}")    
     time.sleep(10)
+
 
 
