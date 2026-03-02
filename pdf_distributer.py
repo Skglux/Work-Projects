@@ -135,9 +135,9 @@ while True:
                             shutil.copy2(source_path, final_afl1_path)
                         if final_afl2_path is not None:
                             shutil.copy2(source_path, final_afl2_path)
-                        if final_afl2_path is not None:
+                        if final_bfl1_path is not None:
                             shutil.copy2(source_path, final_bfl1_path)
-                        if final_afl2_path is not None:
+                        if final_bfl2_path is not None:
                             shutil.copy2(source_path, final_bfl2_path)
                         os.remove(source_path)
                 else:
@@ -146,3 +146,4 @@ while True:
             except:
                 print(f"Error processing{filename}")    
     time.sleep(10)
+
