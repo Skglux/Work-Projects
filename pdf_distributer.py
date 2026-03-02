@@ -38,7 +38,7 @@ while True:
                             supplier = filekeys[0]
                             if filekeys[2] in fleet_codes and filekeys[3] in trng_codes:
                                 tt = filekeys[3]
-                                period = filekeys[4]
+                                period = filekeys[4][0:4]
                                 if len(filekeys[2]) > 2:
                                     afl = filekeys[2][0:2]
                                     bfl= filekeys[2][2:4]
@@ -68,7 +68,7 @@ while True:
                                     else:
                                         att1 = tt
                             else:
-                                period = filekeys[2]
+                                period = filekeys[2][0:4]
                             return supplier, afl, bfl, att1, att2, btt1, btt2, period  
                     else:    
                         return (None,)*8
@@ -146,4 +146,5 @@ while True:
             except:
                 print(f"Error processing{filename}")    
     time.sleep(10)
+
 
