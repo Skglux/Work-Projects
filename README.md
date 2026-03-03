@@ -30,9 +30,3 @@ This repository contains programs developed in **Python** to automate and optimi
   * `openpyxl`: Advanced Excel spreadsheet manipulation.
   * `time`: Script pacing and automation loops.
 
----
-
-## 🚀 Getting Started
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Skglux/Work-Projects.git](https://github.com/Skglux/Work-Projects.git)
