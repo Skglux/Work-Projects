@@ -76,8 +76,4 @@ Archive/
 
 ## 🛡️ Safety Net
 
-<<<<<<< HEAD
 The script is wrapped in a `try/except` block. If a file is locked or a path is unreachable, the script will print an error message and continue monitoring without crashing.
-=======
-The script is wrapped in a `try/except` block. If a file is locked or a path is unreachable, the script will print an error message and continue monitoring without crashing.
->>>>>>> 2006f9bca1718c65a97731ebf039d82a4d5d2f9a
