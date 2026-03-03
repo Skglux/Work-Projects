@@ -14,7 +14,7 @@ This repository contains programs developed in **Python** to automate and optimi
 * **Distribute:** Move files to their final destinations and remove them from the landing zone.
 * **Status:** Fully functional; currently in the **polishing phase** for future optimizations and code refactoring.
 
-### 2. 📊 Report Transformer & Calculator — 🏗️ Work in Progress
+### 2. 📊 Gordian Knot — 🏗️ Work in Progress
 **Problem:** Monthly raw reports are exported in "print-only" formats with merged cells and messy layouts, resulting in time consuming data calculation and control.
 **Solution:** A script using `openpyxl` that:
 * **Cleans:** Unmerges cells and fixes alignment issues across the dataset.

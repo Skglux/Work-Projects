@@ -1,4 +1,4 @@
-# 📊 Excel Report Automator & Calculator (WIP)
+# 📊  Gordian Knot (WIP)
 
 ## 🎯 The Business Problem
 Monthly reports are currently downloaded in spreadsheet that their formats were designed for printing rather than data analysis. This creates a significant "manual control" burden due to:
