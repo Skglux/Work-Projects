@@ -1,7 +1,7 @@
 import openpyxl
 from openpyxl.styles import Alignment
 
-xl = openpyxl.load_workbook("0126packageraw.xlsx")
+xl = openpyxl.load_workbook("0126knot.xlsx")
 
 sheet = xl.active
 
@@ -75,4 +75,4 @@ for col_h in columns_to_hide:
 
 sheet.auto_filter.ref = "Q5:W1000"    
 
-xl.save("0126unrawtest.xlsx")
+xl.save("0126cut.xlsx")
