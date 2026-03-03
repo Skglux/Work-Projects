@@ -9,9 +9,9 @@ import os
 import shutil
 import time 
 
-source_dir = "C:/Users/fotis/Desktop/inputtest"
-supplier_dir = r"C:\Users\fotis\Desktop\test\supplierstest2" 
-infpc_dir = r"C:\Users\fotis\Desktop\test\infpcstest1"
+source_dir = "C:.."
+supplier_dir = r"C:.." 
+infpc_dir = r"C:.."
 
 # Name/data validation lists
 fleet_codes = ['b7', 'q4', 'e2', 'b7q4', 'b7e2', 'q4b7', 'q4e2', 'e2b7', 'e2q4']
@@ -38,7 +38,7 @@ while True:
                             supplier = filekeys[0]
                             if filekeys[2] in fleet_codes and filekeys[3] in trng_codes:
                                 tt = filekeys[3]
-                                period = filekeys[4]
+                                period = filekeys[4][0:4]
                                 if len(filekeys[2]) > 2:
                                     afl = filekeys[2][0:2]
                                     bfl= filekeys[2][2:4]
@@ -68,7 +68,7 @@ while True:
                                     else:
                                         att1 = tt
                             else:
-                                period = filekeys[2]
+                                period = filekeys[2][0:4]
                             return supplier, afl, bfl, att1, att2, btt1, btt2, period  
                     else:    
                         return (None,)*8
@@ -109,7 +109,7 @@ while True:
                             final_afl1_path = os.path.join(afl1_path,filename)
 
                         if att2:
-                            afl2_path = os.path.join(infpc_dir,bfl,att2,period)
+                            afl2_path = os.path.join(infpc_dir,afl,att2,period)
                             os.makedirs(afl2_path, exist_ok=True)
                             final_afl2_path = os.path.join(afl2_path,filename)
                     
@@ -135,9 +135,9 @@ while True:
                             shutil.copy2(source_path, final_afl1_path)
                         if final_afl2_path is not None:
                             shutil.copy2(source_path, final_afl2_path)
-                        if final_afl2_path is not None:
+                        if final_bfl1_path is not None:
                             shutil.copy2(source_path, final_bfl1_path)
-                        if final_afl2_path is not None:
+                        if final_bfl2_path is not None:
                             shutil.copy2(source_path, final_bfl2_path)
                         os.remove(source_path)
                 else:
@@ -146,3 +146,5 @@ while True:
             except:
                 print(f"Error processing{filename}")    
     time.sleep(10)
+
+
