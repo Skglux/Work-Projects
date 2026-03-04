@@ -10,7 +10,7 @@ Monthly reports are currently downloaded in spreadsheet that their formats were 
 I am developing a Python solution using `openpyxl` to transform this manual process into a structured, "one-click" workflow.
 
 ### ✅ Completed Features:
-* **Automated Sanitization:** The script identifies and unmerges cells in the core data range (Columns 1-15) and resets alignment for a clean tabular view. 🧱
+* **Automated Sanitization:** The script identifies and unmerges cells in the core data range (Columns 1-15) and resets alignment making calculations easier.
 * **Exception Handling Logic:** Hardcoded validation for specific `tlc_exceptions` and `days_count_exceptions` to ensure accurate indexing.
 * **Dynamic Formula Injection:** Instead of manual typing, the script writes complex Excel formulas (INDEX, MATCH, COUNTIF) directly into the spreadsheet to calculate:
   * **Paid Count Days:** Logic to determine billable time.
