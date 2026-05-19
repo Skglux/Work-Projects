@@ -22,7 +22,7 @@ A collection of Python tools built to eliminate manual work in a **Financial Off
 
 **Tech:** `os` · `shutil` · `time`
 
-📖 [Full documentation →](PDF_Distributer/README.md)
+📖 [Full documentation →](PDF%20Distributer/README.md)
 
 ---
 
