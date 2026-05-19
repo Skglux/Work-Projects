@@ -22,7 +22,7 @@ A collection of Python tools built to eliminate manual work in a **Financial Off
 
 **Tech:** `os` · `shutil` · `time`
 
-📖 [Full documentation →](pdf_distributer/README.md)
+📖 [Full documentation →](PDF_Distributer/README.md)
 
 ---
 
@@ -43,7 +43,7 @@ A collection of Python tools built to eliminate manual work in a **Financial Off
 
 **Tech:** `openpyxl` · `tkinter` · `json`
 
-📖 [Full documentation →](gordian_knot/README.md)
+📖 [Full documentation →](Gordian_Knot/README.md)
 
 ---
 
