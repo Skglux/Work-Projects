@@ -43,7 +43,7 @@ A collection of Python tools built to eliminate manual work in a **Financial Off
 
 **Tech:** `openpyxl` · `tkinter` · `json`
 
-📖 [Full documentation →](Gordian_Knot/README.md)
+📖 [Full documentation →](Gordian%20Knot/README.md)
 
 ---
 
