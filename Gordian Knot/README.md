@@ -1,28 +1,28 @@
-# Gordian Knot — Bonus Automation Script
+# ⚔️ Gordian Knot — Bonus Automation Script
 
 A desktop automation tool that processes paired **Report A / Report B** Excel files, cleans their data, and injects bonus-calculation formulas — all driven by a single `config.json` file with no hardcoded business values.
 
 ---
 
-## What it does
+## ⚙️ What it does
 
-1. **Unmerges cells** across columns 1–15 and strips wrap-text formatting.
-2. **Trims TLC names** (Three Letter Codes) in column 2 to remove whitespace.
-3. **Detects file type** (Report A or Report B) automatically from cell content, falling back to the filename and — as a last resort — a dialog prompt.
-4. **Extracts Special TLC data** from the Report B sheet (instruction-day rows in columns 9–13).
-5. **Appends Special TLC rows** into the matching block inside Report A.
-6. **Deletes excluded TLC blocks** (configured per report type in `config.json`).
-7. **Removes duplicate day entries** within each TLC block, keeping the first occurrence.
-8. **Writes a TLC modifier lookup table** into hidden helper columns X/Y.
-9. **Injects Excel formulas** into calculation columns Q–W (rows 6–999):
+1. 🔓 **Unmerges cells** across columns 1–15 and strips wrap-text formatting.
+2. ✂️ **Trims TLC names** (Three Letter Codes) in column 2 to remove whitespace.
+3. 🔍 **Detects file type** (Report A or Report B) automatically from cell content, falling back to the filename and — as a last resort — a dialog prompt.
+4. 📤 **Extracts Special TLC data** from the Report B sheet (instruction-day rows in columns 9–13).
+5. 📥 **Appends Special TLC rows** into the matching block inside Report A.
+6. 🗑️ **Deletes excluded TLC blocks** (configured per report type in `config.json`).
+7. 🧹 **Removes duplicate day entries** within each TLC block, keeping the first occurrence.
+8. 📋 **Writes a TLC modifier lookup table** into hidden helper columns X/Y.
+9. 🧮 **Injects Excel formulas** into calculation columns Q–W (rows 6–999):
    - Q: Instruction Day · R: TLC · S: Exception flag · T: Day threshold · U: Days count · V: Paid count days · W: Amount (EUR)
-10. **Hides helper columns** X/Y and applies an auto-filter on Q5:W1000.
-11. **Saves** each processed file as `Modified_<original_filename>` in the chosen output folder.
-12. **Optionally emails** the output files as attachments via SMTP.
+10. 🙈 **Hides helper columns** X/Y and applies an auto-filter on Q5:W1000.
+11. 💾 **Saves** each processed file as `Modified_<original_filename>` in the chosen output folder.
+12. 📧 **Optionally emails** the output files as attachments via SMTP.
 
 ---
 
-## Prerequisites
+## 📦 Prerequisites
 
 - Python 3.10+
 - `openpyxl`
@@ -36,7 +36,7 @@ pip install openpyxl
 
 ---
 
-## Setup
+## 🛠️ Setup
 
 1. Edit `config.json` with your real values. The file has three top-level sections:
 
@@ -60,11 +60,11 @@ pip install openpyxl
 | `recipients` | List of recipient addresses |
 | `subject` / `body` | Email subject line and body text |
 
-> **Note:** The `config.json` included in this repository contains dummy values.
+> 📝 **Note:** The `config.json` included in this repository contains dummy values.
 
 ---
 
-## Usage
+## 🚀 Usage
 
 Run the script directly:
 
@@ -74,14 +74,14 @@ python gordian_knot.py
 
 Two dialogs appear in sequence:
 
-1. **Select Excel files** — pick one or more Report A / Report B `.xlsx` files. You may select both at once; the script processes Report B before Report A automatically so the Special TLC data is available when Report A needs it.
-2. **Select output folder** — choose where the `Modified_` files are saved. If you dismiss this dialog, output defaults to the same folder as the first selected file.
+1. 📂 **Select Excel files** — pick one or more Report A / Report B `.xlsx` files. You may select both at once; the script processes Report B before Report A automatically so the Special TLC data is available when Report A needs it.
+2. 📁 **Select output folder** — choose where the `Modified_` files are saved. If you dismiss this dialog, output defaults to the same folder as the first selected file.
 
 Progress and any warnings are printed to the console. Each saved file is named `Modified_<original_filename>`.
 
 ---
 
-## File type detection
+## 🔎 File type detection
 
 The script identifies each file in order of priority:
 
@@ -91,7 +91,7 @@ The script identifies each file in order of priority:
 
 ---
 
-## Processing order
+## 🔄 Processing order
 
 Report B is always processed first. This ensures the Special TLC rows are captured in `data_dict` before Report A's `append_special_tlc_insti_days` step runs.
 
@@ -105,19 +105,19 @@ Each report type runs its own processing pipeline defined in `file_type_config`:
 
 ---
 
-## Known issues / pending work
+## 🚧 Known issues / pending work
 
 - **PENDING 8:** Activation / deactivation process (e.g. scheduled task or desktop shortcut).
 
 ---
 
-## Project structure
+## 📁 Project structure
 
 ```
-gordian_knot.py              # Main script
-config.json                  # Dummy config with placeholder values
-demo_report_a.xlsx           # Dummy Report A input for testing
-demo_report_b.xlsx           # Dummy Report B input for testing
-Modified_demo_report_a.xlsx  # Expected output for demo_report_a.xlsx
-Modified_demo_report_b.xlsx  # Expected output for demo_report_b.xlsx
+gordian_knot.py              # 🐍 Main script
+config.json                  # ⚙️  Dummy config with placeholder values
+demo_report_a.xlsx           # 📊 Dummy Report A input for testing
+demo_report_b.xlsx           # 📊 Dummy Report B input for testing
+Modified_demo_report_a.xlsx  # ✅ Expected output for demo_report_a.xlsx
+Modified_demo_report_b.xlsx  # ✅ Expected output for demo_report_b.xlsx
 ```
