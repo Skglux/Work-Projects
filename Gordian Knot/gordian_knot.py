@@ -11,11 +11,7 @@ Processes paired Report A / Report B Excel packages:
   - Optionally sends results by email
 
 All sensitive values (TLC codes, bonus amounts, email credentials) are loaded
-from config.json which is listed in .gitignore and never committed to source control.
-Copy config.template.json → config.json and fill in the real values before running.
-
-Pending (requires further business input):
-  - PENDING 8 : Activation / deactivation process (e.g. scheduled task / shortcut)
+from config.json.
 """
 
 import json
